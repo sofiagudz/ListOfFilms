@@ -1,0 +1,37 @@
+﻿@model ListOfFilms.Film
+
+<p style="text-align: center; font-size: 29px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: #d93609;">Are you sure you want to delete this?</p>
+<p style="text-align: center; font-size: 29px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; text-shadow: 1px 1px 1px grey">@Html.DisplayFor(model => model.Name)</p>
+<table style="width:50%; margin: auto;">
+                        <tr>
+                            <td rowspan="4"><img src="@Url.Content(Model?.Poster)" style="height: 500px; margin: 10px"></td>
+                            <td style="width: 300px; height: 40px;">
+                                          <div style="font-size: 21px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><span style="text-decoration:underline; font-size: 24px;">Year</span> - @Html.DisplayFor(model => model.Year)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 300px; height: 40px;">
+                                            <div style="font-size: 21px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><span style="text-decoration:underline; font-size: 24px;">Genre</span> - @Html.DisplayFor(model => model.Genre)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 300px; height: 40px;">
+                                            <div style="font-size: 21px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><span style="text-decoration:underline; font-size: 24px;">Director</span> - @Html.DisplayFor(model => model.Director)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 300px; height: 40px;">
+                                            <div style="font-size: 21px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><span style="text-decoration:underline; font-size: 24px;">Description</span> - @Html.DisplayFor(model => model.Description)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align: center">
+                                <form asp-action="Delete">
+                                    <input type="hidden" asp-for="Id" />
+                                    <input type="submit" value="Delete" class="btn btn-danger" /> |
+                                    <a asp-action="Index">Back to List</a>
+                                </form>                                
+                            </td>
+                        </tr>
+                    </table>
+ 

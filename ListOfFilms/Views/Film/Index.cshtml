@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ListOfFilms.Film>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <div style="text-align: center; font-size: 40px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; text-shadow: 1px 1px 1px grey">Top 10 films</div><hr /><br /><br />
+    <p style="text-align: center; font-size: 19px;">
+        <a asp-action="Create">Add a new film</a>
+    </p>
+    <br />
+        @foreach (var st in Model)
+        {
+                    <p style="text-align: center; font-size: 29px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; text-shadow: 1px 1px 1px grey">@Html.DisplayFor(modelItem => st.Name)</p>
+                <table style="width:50%; margin: auto;">
+                        <tr>
+                             <td rowspan="4"><img src="@Url.Content(@st.Poster)" style="height: 500px; margin: 10px"></td>
+                            <td style="width: 300px; height: 40px;">
+                                          <div style="font-size: 21px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><span style="text-decoration:underline; font-size: 24px;">Year</span> - @Html.DisplayFor(modelItem => st.Year)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 300px; height: 40px;">
+                                            <div style="font-size: 21px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><span style="text-decoration:underline; font-size: 24px;">Genre</span> - @Html.DisplayFor(modelItem => st.Genre)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 300px; height: 40px;">
+                                            <div style="font-size: 21px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><span style="text-decoration:underline; font-size: 24px;">Director</span> - @Html.DisplayFor(modelItem => st.Director)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 300px; height: 40px;">
+                                            <div style="font-size: 21px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><span style="text-decoration:underline; font-size: 24px;">Description</span> - @Html.DisplayFor(modelItem => st.Description)</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-size: 19px; text-align: center;" colspan="2">
+                                <a asp-action="Edit" asp-route-id="@st.Id">Edit</a>
+                                <a asp-action="Details" asp-route-id="@st.Id">Details</a>
+                                <a asp-action="Delete" asp-route-id="@st.Id">Delete</a>
+                            </td>
+                        </tr>
+                    </table>
+                <br /><br /><br />
+        }
+    
+</div>
